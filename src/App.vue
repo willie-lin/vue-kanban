@@ -24,16 +24,19 @@
 </template>
 
 <script>
-  import Sidebar from './components/Sidebar.vue'
-export default {
+  import Sidebar from './components/sidebar';
+  export default {
 
-    components: { 'sidebar': Sidebar }
+    components: {
+      // 'sidebar':
+      Sidebar
+    }
   }
 </script>
 
 <style>
 #app {
-  font-family: "Microsoft YaHei UI Light" ;
+  font-family: "Microsoft YaHei UI Light";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

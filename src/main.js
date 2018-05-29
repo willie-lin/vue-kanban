@@ -2,20 +2,21 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-// import router from './router'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import Home from './components/home'
 import 'bootstrap/dist/css/bootstrap.css'
 import store from './store'
 import TimeEntries from './components/TimeEntries'
+import LogTime from './components/logtime'
+import NotFound from './components/notfound'
 
 
 // Vue.config.productionTip = false
 
 
-Vue.use(VueRouter)
-Vue.use(VueResource)
+Vue.use(VueRouter);
+Vue.use(VueResource);
 
 const routes = [{
   path: '/',
@@ -28,7 +29,17 @@ const routes = [{
   ,
   {
     path: '/time-entries',
-    component: TimeEntries
+    component: TimeEntries,
+    children: [
+      {
+        path: 'log-time',
+        component: LogTime
+      }]
+  }
+  ,
+  {
+    path: '*',
+    component: NotFound
   }];
 
 const router = new VueRouter({
@@ -36,11 +47,18 @@ const router = new VueRouter({
 });
 
 /* eslint-disable no-new */
-new Vue({
+// new Vue({
+//   el: '#app',
+//   router,
+//   store,
+//   ...App,
+//   // components: { App },
+//   // template: '<App/>'
+// });
+
+var app = new Vue({
   el: '#app',
   router,
   store,
   ...App,
-  // components: { App },
-  // template: '<App/>'
 });

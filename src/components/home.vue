@@ -11,7 +11,15 @@
 
 <script>
     export default {
-        name: "home"
+        // name: "home"
+      data() {
+        return {
+
+        }
+      },
+      components: {
+
+      }
     }
 </script>
 

@@ -1,10 +1,10 @@
 <template>
     <div>
-      // v-if 是一个vue指令
+     <!-- // v-if 是一个vue指令
       // '$route.path' 是当前路由对象的路径， 会被解析为绝对路径
       // '$route.path !== '/time-entries/log-time' 为 'true' 是显示， ’法拉盛' 为不显示。
       // to 路由跳转
-
+ -->
       <router-link
         v-if="$route.path !== '/time-entries/log-time'"
         to="/time-entries/log-time" class="btn btn-primary">
@@ -23,7 +23,7 @@
           <strong>还没有任何计划</strong>
         </p>
         <div class="list-group">
-          <--
+          <!--
           v-for循环，注意参数顺序为(item,index) in items
           -->
 
@@ -31,12 +31,12 @@
             <div class="row">
               <div class="col-sm-2 user-details">
 
-                <--
+                <!--
                 `:src`属性，这个是vue的属性绑定简写`v-bind`可以缩写为`:`
                 比如a标签的`href`可以写为`:href`
                 并且在vue的指令里就一定不要写插值表达式了(`:src={{xx}}`)，vue自己会去解析
                 -->
-                <img :src="plan.avatar" class="avatar img-circle img-responsive"/>
+                <img :src="plan.avatar" class="avatar img-circle img-responsive" />
                 <p class="text-center">
                   <strong>
                     {{ plan.name }}
@@ -46,7 +46,7 @@
 
               <div class="col-sm-2 text-center time-block">
                 <h3 class="list-group-item-text total-time">
-                  <i class="glyphicon glyphicon-calendar"></i>
+                  <i class="glyphicon glyphicon-time"></i>
                   {{ plan.totalTime }}
                 </h3>
 
@@ -86,9 +86,9 @@
           deletePlan(idx) {
             //
             //
-             this.$store.dispatch('decTotalTime', this.plans[idx].totalTime)
+             this.$store.dispatch('decTotalTime', this.plans[idx].totalTime);
             // 删除该计划
-            this.$store.dispatch('deletePlan', idx)
+            this.$store.dispatch('deletePlan', idx);
           }
         }
     }
@@ -105,7 +105,7 @@
   .user-details {
     background-color: #f5f5f5;
     border-right: 1px solid #dddddd;
-    margin: -10px;
+    margin: -10px 0;
 
   }
 
